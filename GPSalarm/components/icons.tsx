@@ -5,5 +5,5 @@ type RawIconProps = ComponentProps<typeof MaterialCommunityIcons>;
 type IconProps = Omit<RawIconProps, 'name'>
 
 export const HomeIcon = (props: IconProps) => (
-    <MaterialCommunityIcons {...props} name="home" size={24} color="black"/>
+    <MaterialCommunityIcons {...props} name="home" size={24} color="#27C497"/>
 )
