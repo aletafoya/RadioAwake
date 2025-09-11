@@ -1,8 +1,10 @@
 import { Button, View } from "react-native";
-import ScrollTime from "../../components/scrollTime";
-import Ringtone from "../../components/ringtone";
-import Vibrate from "../../components/vibrate";
-import NameOfAlarm from "../../components/nameOfAlarm";
+import ScrollTime from "../../components/ScrollTime";
+import RingtoneList from "../../components/RingtoneList";
+import LabelRing from "../../components/LabelRing";
+import ToggleCheck from "../../components/ToggleCheck";
+import ButtonRing from "../../components/ButtonRing";
+import CircleButton from "../../components/CircleButton";
 
 const hours = Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, "0"));
 hours.push("");
@@ -19,13 +21,15 @@ export default function Timer() {
           <ScrollTime data={minutes} name={"Minutes"}/>
           <ScrollTime data={seconds} name={"Seconds"}/>
       </View>
-      <Ringtone />
-      <Vibrate />
-      <NameOfAlarm />
-      <View className="border-2 border-solid rounded-lg w-1/2">
-        <Button title="Ready" color="#27C497" />
+      <View className="flex-row">
+        <LabelRing title="Set Ringtone" description="Default"/>
+        <ButtonRing title="Default"/>
       </View>
-
+      <View className="flex-row">
+        <LabelRing title="Vibrate" description=""/>
+        <ToggleCheck/>
+      </View>
+      <CircleButton/>
     </View>
   );
 }

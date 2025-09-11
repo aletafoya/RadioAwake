@@ -12,6 +12,10 @@ export const MapMarkerIcon = (props: IconProps) => (
     <MaterialCommunityIcons name="map-marker" size={30} color="#27C497" {...props} />
 )
 
+export const PlayIcon = (props: IconProps) => (
+    <MaterialCommunityIcons name="play" size={30} color="#27C497" {...props} />
+)
+
 export const TimerSandIcon = (props: IconProps) => (
     <MaterialCommunityIcons name="timer-sand-empty" size={30} color="#27C497" {...props}/>
 )

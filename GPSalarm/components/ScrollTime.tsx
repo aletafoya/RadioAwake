@@ -12,7 +12,7 @@ type ScrollTimeProps = {
 export default function ScrollTime({ data, name } : ScrollTimeProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const onScroll = (event: any) => {
+  const onScroll = (event: any) => { // Función para saber qué indice está en focus
     const yOffset = event.nativeEvent.contentOffset.y;
     const index = Math.round(yOffset / ITEM_HEIGHT);
     setSelectedIndex(index);
@@ -29,11 +29,11 @@ export default function ScrollTime({ data, name } : ScrollTimeProps) {
         scrollEventThrottle={16}
         bounces={false}
         renderItem={({ item, index }) => {
-          // const scale = index === selectedIndex ? 1.2 : 1; 
+          // const scale = index === selectedIndex ? 1.2 : 1; cambia de tamaño para el elemento en focus
           const opacity = index === selectedIndex ? 1 : 0.3; 
           return (
             <View style={{ height: ITEM_HEIGHT, justifyContent: "center", alignItems: "center" }}>
-              <Text style={{ fontSize: 27, opacity , color:"white"}}>{item}</Text>
+              <Text style={{ fontSize: 50, opacity , color:"white"}}>{item}</Text>
             </View>
           );
         }}
