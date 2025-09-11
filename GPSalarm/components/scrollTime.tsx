@@ -1,3 +1,4 @@
+import { colorScheme } from "nativewind";
 import React, { useRef, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 
@@ -18,7 +19,7 @@ export default function ScrollTime({ data, name } : ScrollTimeProps) {
   };
 
   return (
-    <View style={{ height: ITEM_HEIGHT * 3, overflow: "hidden" }}>
+    <View style={{ height: ITEM_HEIGHT * 3, overflow: "hidden"}}>
       <FlatList
         data={data}
         keyExtractor={(item) => item}
@@ -28,17 +29,16 @@ export default function ScrollTime({ data, name } : ScrollTimeProps) {
         scrollEventThrottle={16}
         bounces={false}
         renderItem={({ item, index }) => {
-          
-          const scale = index === selectedIndex ? 1.2 : 1; 
+          // const scale = index === selectedIndex ? 1.2 : 1; 
           const opacity = index === selectedIndex ? 1 : 0.3; 
           return (
             <View style={{ height: ITEM_HEIGHT, justifyContent: "center", alignItems: "center" }}>
-              <Text style={{ fontSize: 27 * scale, opacity , color:"white"}}>{item}</Text>
+              <Text style={{ fontSize: 27, opacity , color:"white"}}>{item}</Text>
             </View>
           );
         }}
       />
-      <Text className="pt-4">{name}</Text>
+      <Text className="pt-4 text-center" style={{color:"white"}}>{name}</Text>
     </View>
   );
 }
