@@ -26,12 +26,14 @@ export default function ScrollTime({ data, name } : ScrollTimeProps) {
         decelerationRate="fast"
         onScroll={onScroll}
         scrollEventThrottle={16}
+        bounces={false}
         renderItem={({ item, index }) => {
+          
           const scale = index === selectedIndex ? 1.2 : 1; 
           const opacity = index === selectedIndex ? 1 : 0.3; 
           return (
             <View style={{ height: ITEM_HEIGHT, justifyContent: "center", alignItems: "center" }}>
-              <Text style={{ fontSize: 24 * scale, opacity }}>{item}</Text>
+              <Text style={{ fontSize: 27 * scale, opacity , color:"white"}}>{item}</Text>
             </View>
           );
         }}

@@ -10,8 +10,8 @@ seconds.push("");
 
 export default function Timer() {
   return (
-    <View>
-      <View className="p-4 flex-row justify-around">
+    <View className="">
+      <View className="p-4 flex-row justify-around bg-[#27C499]">
           <ScrollTime data={hours} name={"Hours"} />
           <ScrollTime data={minutes} name={"Minutes"}/>
           <ScrollTime data={seconds} name={"Seconds"}/>
