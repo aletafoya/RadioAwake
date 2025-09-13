@@ -1,7 +1,7 @@
 {
   "name": "gpsalarm",
   "version": "1.0.0",
-  "main": "expo-router/entry",
+  "main": "index.ts",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
     "expo": "~53.0.22",
+    "expo-checkbox": "~4.1.4",
     "expo-constants": "~17.1.7",
     "expo-linking": "~7.1.7",
     "expo-router": "~5.1.5",
@@ -22,8 +23,8 @@
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
-    "tailwindcss": "^3.4.17",
-    "expo-checkbox": "~4.1.4"
+    "react-native-tab-view": "^4.1.3",
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

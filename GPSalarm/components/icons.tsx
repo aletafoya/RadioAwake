@@ -31,3 +31,7 @@ export const AlarmIcon = (props: IconProps) => (
 export const ClockIcon = (props: IconProps) => (
     <MaterialCommunityIcons name="clock-time-eight-outline" size={30} color="#27C497" {...props} />
 )
+
+export const ConfigIcon = (props: IconProps) => (
+    <MaterialCommunityIcons name="cog" size={30} color="#27C497" {...props} />
+)

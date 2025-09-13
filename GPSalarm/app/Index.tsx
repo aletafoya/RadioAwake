@@ -1,6 +1,7 @@
-import { HomeIcon } from "../components/icons";
 import "../global.css"
-import { Text, View } from "react-native";
+import { useState } from "react"
+import { TabBar, TabView, SceneMap } from "react-native-tab-view";
+import { Text, View, useWindowDimensions } from "react-native";
  
 export default function Index() {
   return (
