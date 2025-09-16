@@ -1,9 +1,7 @@
 import { View, Text } from "react-native";
-
+import RingtoneList from "../components/RingtoneList";
 export default function GPSalarm() {
     return (
-        <View className="flex-1 bg-background">
-            <Text className="text-mainText">GPS alarm</Text>
-        </View>
+        <RingtoneList></RingtoneList>        
     )
 }

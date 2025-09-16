@@ -1,13 +1,14 @@
-import React from "react";
-import { View, Text } from "react-native";
-import Label from "./LabelRing"
+import { useState } from "react";
+import { View, Text, FlatList } from "react-native";
+import { RadioButton } from "react-native-paper";
+import data from "../assets/tones.json";
 
 export default function RingtoneList() {
+    const [checked, setChecked] = useState('first');
+
     return (
-        <View className="flex-row w-1/2 pb-4">
-            <View className="w-3/10 pl-2 pr-2 pb-6 items-end border-solid border-2">
-                <Text className="text-xl" style={{color:"#27C497"}}>Default</Text>
-            </View>
+        <View className="w-full h-full">
+            
         </View>
     );
 }
