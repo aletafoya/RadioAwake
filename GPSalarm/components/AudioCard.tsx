@@ -3,14 +3,16 @@ import LabelRing from './LabelRing';
 import { View } from 'react-native';
 import { RadioButton } from 'react-native-paper';
 type AudioCardProp = {
-    name: string
+    name: string,
+    state: boolean
 }
 
-export default function AudioCard({name} : AudioCardProp) {
+export default function AudioCard({ name, state } : AudioCardProp) {
     return (
         <View>
             <LabelRing title={name} description=''/> 
-            <RadioButton value="first" status='unchecked'/>
+            <RadioButton value="first" 
+                status={state ? "checked" : "unchecked"}/>
         </View>
     )
 }
