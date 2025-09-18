@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button, View } from "react-native";
 import ScrollTime from "../components/ScrollTime";
 import RingtoneList from "../components/RingtoneList";
@@ -14,12 +15,14 @@ const seconds = Array.from({ length: 60 }, (_, i) => i.toString().padStart(2, "0
 seconds.push("");
 
 export default function Timer() {
+  const [time, setTime] = useState({ hours: "00", minutes: "00", seconds: "00" });
+
   return (
     <View className="items-center">
       <View className="p-4 pb-6 flex-row justify-around w-full">
-          <ScrollTime data={hours} name={"Hours"} />
-          <ScrollTime data={minutes} name={"Minutes"}/>
-          <ScrollTime data={seconds} name={"Seconds"}/>
+          <ScrollTime data={hours} name={"Hours"} onChange={(val) => time.hours}/>
+          <ScrollTime data={minutes} name={"Minutes"} onChange={(val) => time.minutes}/>
+          <ScrollTime data={seconds} name={"Seconds"} onChange={(val) => time.seconds}/>
       </View>
       <View className="flex-row">
         <LabelRing title="Set Ringtone" description="Default"/>
@@ -29,7 +32,7 @@ export default function Timer() {
         <LabelRing title="Vibrate" description=""/>
         <ToggleCheck/>
       </View>
-      <CircleButton/>
+      <CircleButton enabled={(parseInt(time.hours) + parseInt(time.minutes) + parseInt(time.seconds)) > 0 ? true : false}/>
     </View>
   );
 }

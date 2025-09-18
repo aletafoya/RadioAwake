@@ -7,14 +7,16 @@ const ITEM_HEIGHT = 60;
 type ScrollTimeProps = {
   data: string[];
   name: string;
+  onChange: (value: string) => void;
 };
 
-export default function ScrollTime({ data, name } : ScrollTimeProps) {
+export default function ScrollTime({ data, name, onChange } : ScrollTimeProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onScroll = (event: any) => { // Función para saber qué indice está en focus
     const yOffset = event.nativeEvent.contentOffset.y;
     const index = Math.round(yOffset / ITEM_HEIGHT);
+    onChange(data[index]);
     setSelectedIndex(index);
   };
 
