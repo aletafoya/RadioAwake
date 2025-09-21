@@ -1,0 +1,24 @@
+{
+    "tones": [
+        {
+        "id": 1,
+        "name": "Retro Machine",
+        "file": "/audios/retro-machine.wav"
+        },
+        {
+        "id": 2,
+        "name": "Chicken",
+        "file": "/audios/chicken.wav"
+        },
+        {
+        "id": 3,
+        "name": "Digital Clock",
+        "file": "/audios/digital-clock.wav"
+        },
+        {
+        "id": 4,
+        "name": "Vintage Clock",
+        "file": "/audios/vintage-clock.wav"
+        }
+    ]
+}

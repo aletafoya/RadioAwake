@@ -1,9 +1,13 @@
 import { PlayIcon } from "./icons";
 import { View } from "react-native"
 
-export default function CircleButton() {
+type CircleButtonProps = {
+    enabled: boolean
+}
+
+export default function CircleButton( { enabled } : CircleButtonProps ) {
     return(
-        <View className="bg-[#ffffff] rounded-full p-3">
+        <View className="rounded-full p-3" style={ {backgroundColor: enabled ? "#ffffff" : "#6b6666ff"} }>
             <PlayIcon size={45}></PlayIcon>        
         </View>
     );
