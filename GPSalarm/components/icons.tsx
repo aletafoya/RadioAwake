@@ -35,3 +35,7 @@ export const ClockIcon = (props: IconProps) => (
 export const ConfigIcon = (props: IconProps) => (
     <MaterialCommunityIcons name="cog" size={30} color="#27C497" {...props} />
 )
+
+export const AddIcon = (props: IconProps) => (
+    <MaterialCommunityIcons name="plus" size={30} color="#27C497" {...props} />
+)
