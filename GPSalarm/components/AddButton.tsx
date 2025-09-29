@@ -1,14 +1,18 @@
-import { View } from "react-native"
+import { Pressable } from "react-native"
 import { AddIcon } from "./icons"
-import { useRouter } from "expo-router"
+import { useNavigation } from "@react-navigation/native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import type { RootStackParamList } from "../screens/RootStackParamList"
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
 
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'CreateNewAlarm'>;
 
 export default function AddButton() {
-    const router = useRouter();
+    const navigation = useNavigation<NavigationProp>();
 
     return (
-        <View className="rounded-[10] bg-white mb-5">
-            <AddIcon size={45} onPress={() => router.navigate('/GPScard')}></AddIcon>
-        </View>
+        <Pressable className="rounded-[10] bg-white mb-5" onPress={() => navigation.navigate("CreateNewAlarm")}>
+            <AddIcon size={45}></AddIcon>
+        </Pressable>
     )
 }
