@@ -1,14 +1,13 @@
+// Pantalla que renderiza las alarmas GPS
 import { View } from "react-native";
 import { ScrollView } from "react-native";
 import AddButton from "../components/AddButton";
 import SaveCard from "../components/SaveCard";
-import { useNavigation } from "@react-navigation/native";
 
 export default function GPSalarm() {
-    const navigation = useNavigation();
     
     return (
-        <View className="w-full h-full justify-center items-center">
+        <View className="w-full h-full justify-center items-center bg-[#222423]">
             <ScrollView className="w-full h-full" contentContainerStyle={ { alignItems: "center" } } >
                 <SaveCard />
             </ScrollView>

@@ -20,7 +20,7 @@ export default function ScrollDistance({ onChange } : ScrollDistanceProps) {
     }
 
     return (
-        <View className="h-40 pl-4 ">
+        <View className="h-40 pl-4 justify-center items-center" style={{width: ITEM_WIDTH * 3, overflow: "hidden"}}>
             <FlatList
                 data={distance}
                 horizontal
@@ -33,12 +33,13 @@ export default function ScrollDistance({ onChange } : ScrollDistanceProps) {
                 renderItem={({item, index}) => {
                     const opacity = index === selectedDistance ? 1 : 0.3;
                     return(
-                        <View style={{justifyContent:"center", alignItems:"center"}}>
-                            <Text style={{ fontSize: 50, opacity , color:"white"}}>{item}</Text>
+                        <View className="w-24 justify-center items-center pl-4">
+                            <Text style={{ fontSize: 20, opacity , color:"white"}}>{item}</Text>
                         </View>
                 )}}
                 >
             </FlatList>
+            <Text className="pb-4" style={{color:"white"}}>Meters</Text>
         </View>
         
     )

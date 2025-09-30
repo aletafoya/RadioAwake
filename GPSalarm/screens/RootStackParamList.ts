@@ -6,4 +6,5 @@ export type RootStackParamList = {
     Stopwatch: undefined;
     WorldClock: undefined;
     Layout: undefined;
+    SetRingtone: undefined;
 }

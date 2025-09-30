@@ -1,7 +1,7 @@
+// Botón para añadir una nueva alarma
 import { Pressable } from "react-native"
 import { AddIcon } from "./icons"
 import { useNavigation } from "@react-navigation/native"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import type { RootStackParamList } from "../screens/RootStackParamList"
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
 

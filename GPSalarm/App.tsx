@@ -1,11 +1,10 @@
 import "./global.css";
-import GPSalarm from "./screens/GPSalarm";
 import Layout from "./screens/Layout";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "./screens/RootStackParamList";
 import CreateNewAlarm from "./screens/CreateNewAlarm";
-import WorldClock from "./screens/WorldClock";
+import SetRingtone from "./screens/SetRingtone";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -20,6 +19,7 @@ export default function App() {
             <Stack.Screen name="Stopwatch" component={Layout}/>
             <Stack.Screen name="WorldClock" component={Layout}/>
             <Stack.Screen name="CreateNewAlarm" component={CreateNewAlarm}/>
+            <Stack.Screen name="SetRingtone" component={SetRingtone}/>
         </Stack.Navigator>
     </NavigationContainer>
    
