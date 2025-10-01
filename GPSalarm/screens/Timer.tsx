@@ -27,7 +27,7 @@ export default function Timer() {
       </View>
       <View className="flex-row pt-6 pb-6">
         <LabelRing title="Set Ringtone" description="Default"/>
-        <ButtonRing title="Default"/>
+        <ButtonRing title="Default" url="SetRingtone"/>
       </View>
       <View className="flex-row pt-6 pb-6">
         <LabelRing title="Vibrate" description=""/>

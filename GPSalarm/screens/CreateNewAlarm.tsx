@@ -18,7 +18,7 @@ export default function CreateNewAlarm() {
                     <ScrollDistance onChange={(val) => distance}/>
                     <View className="flex-row mt-4">
                         <LabelRing title="Set Ringtone" description="Default"/>
-                        <ButtonRing title="Default"/>
+                        <ButtonRing title="Default" url="SetRingtone"/>
                     </View>
                     <View className="flex-row mt-4">
                         <LabelRing title="Vibrate" description=""/>

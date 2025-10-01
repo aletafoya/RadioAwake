@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "./screens/RootStackParamList";
 import CreateNewAlarm from "./screens/CreateNewAlarm";
 import SetRingtone from "./screens/SetRingtone";
+import SetTimeAlarm from "./screens/SetTimeAlarm"
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -20,6 +21,7 @@ export default function App() {
             <Stack.Screen name="WorldClock" component={Layout}/>
             <Stack.Screen name="CreateNewAlarm" component={CreateNewAlarm}/>
             <Stack.Screen name="SetRingtone" component={SetRingtone}/>
+            <Stack.Screen name="SetTimeAlarm" component={SetTimeAlarm}/>
         </Stack.Navigator>
     </NavigationContainer>
    

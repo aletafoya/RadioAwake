@@ -31,7 +31,7 @@ export default function Layout() {
 
     return (
         <View className="flex-1">
-            <CustomHeader title={currentTitle} />
+            <CustomHeader title={currentTitle} back={false} />
             <View className="flex-1">
                 <TabView
                     navigationState={{ index, routes }}

@@ -1,8 +1,9 @@
 // Pantalla que renderiza las alarmas GPS
 import { View } from "react-native";
 import { ScrollView } from "react-native";
-import AddButton from "../components/AddButton";
 import SaveCard from "../components/SaveCard";
+import FloatingButton from "../components/FloatingButton";
+import { AddIcon } from "../components/icons";
 
 export default function GPSalarm() {
     
@@ -11,7 +12,9 @@ export default function GPSalarm() {
             <ScrollView className="w-full h-full" contentContainerStyle={ { alignItems: "center" } } >
                 <SaveCard />
             </ScrollView>
-            <AddButton/>
+            <FloatingButton bgColor="#27C497" url="CreateNewAlarm">
+                <AddIcon size={40} color={"#222423"}/>
+            </FloatingButton>
         </View>
 
     );
