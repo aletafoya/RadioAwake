@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import TimeAlarmCard from "../components/TimeAlarmCard";
 import FloatingButton from "../components/FloatingButton";
-import { PlusIcon } from "../components/icons";
+import { AddIcon } from "../components/icons";
 
 export default function TimeAlarm() {
     return (
@@ -20,7 +20,7 @@ export default function TimeAlarm() {
                 <TimeAlarmCard />
             </ScrollView>
             <FloatingButton bgColor="#27C497">
-                <PlusIcon size={40} color={"#222423"}/>
+                <AddIcon size={40} color={"#222423"}/>
             </FloatingButton>
         </View>
 
