@@ -1,16 +1,21 @@
 import Reatc from "react";
 import { View, Text, TextInput } from "react-native";
+import SwitchButton from "./SwitchButton";
 
-type NameOfAlarmProp = {
+type LabelRingProps = {
     title: string,
-    description: string
+    description?: string,
+    toggle?: boolean
 }
 
-export default function NameOfAlarm({title, description} : NameOfAlarmProp) {
+export default function LabelRing({title, description = "", toggle = false} : LabelRingProps) {
     return (
-        <View className="flex-column pb-4 w-1/2">
-            <Text className="text-xl pr-3 color-[#ffffff]">{title}</Text>
-            <Text className="color-[#757575]">{description}</Text>
+        <View className="flex-row justify-between items-center">
+            <View className="flex-column">
+                <Text className="text-xl color-[#ffffff]">{title}</Text>
+                {description !== "" && <Text className="color-[#757575]">{description}</Text>}
+            </View>
+            {toggle && <SwitchButton />}
         </View>
     );
 }

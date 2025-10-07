@@ -9,7 +9,7 @@ export default function TimeAlarmCard() {
                     <Text className="font-semibold text-5xl text-mainText">06:00</Text>
                     <Text className="font-semibold text-sm text-mainText">AM</Text>
                 </View>
-                <SwitchButton trackWidth={50} trackHeight={25} trackColors={{on:'#27C497', off:'#757575'}} />
+                <SwitchButton />
 
             </View>
             <View>

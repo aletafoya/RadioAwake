@@ -1,6 +1,7 @@
 import { Text, View } from "react-native";
 import CustomHeader from "../components/CustomHeader";
 import ScrollTime from "../components/ScrollTime";
+import LabelRing from "../components/LabelRing";
 import { useState } from "react";
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 
@@ -27,7 +28,12 @@ export default function SetTimeAlarm() {
             <View>
                 <Calendar/>
             </View>
-
+            <View className="gap-4 px-6">
+                <LabelRing title="Vibrate" toggle={true}/>
+                <LabelRing title="Snooze" description="5 min." toggle={true}/>
+                <LabelRing title="Alarm name" description="name"/>
+                <LabelRing title="Mission" description="Math test"/>
+            </View>
         </View>
     )
 }

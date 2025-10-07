@@ -148,11 +148,11 @@ interface SwitchButtonProps {
 
 const SwitchButton: React.FC<SwitchButtonProps> = ({
   initial = false,
-  trackWidth,
-  trackHeight,
+  trackWidth = 50,
+  trackHeight = 25,
   trackPadding,
   thumbSize,
-  trackColors,
+  trackColors = {on:'#27C497', off:'#757575'},
   duration,
   style,
 }) => {

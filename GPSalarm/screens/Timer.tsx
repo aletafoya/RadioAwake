@@ -30,8 +30,7 @@ export default function Timer() {
         <ButtonRing title="Default" url="SetRingtone"/>
       </View>
       <View className="flex-row pt-6 pb-6">
-        <LabelRing title="Vibrate" description=""/>
-        <ToggleCheck/>
+        <LabelRing title="Vibrate" description="" toggle={true}/>
       </View>
       <CircleButton enabled={(parseInt(hrs) + parseInt(mns) + parseInt(sec)) > 0 ? true : false}/>
     </View>
