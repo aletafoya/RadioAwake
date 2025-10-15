@@ -4,6 +4,7 @@ import ScrollTime from "../components/ScrollTime";
 import LabelRing from "../components/LabelRing";
 import { useState } from "react";
 import { Calendar, LocaleConfig } from 'react-native-calendars'
+import SwitchButton from "../components/SwitchButton";
 
 export default function SetTimeAlarm() {
     const hours = Array.from({ length: 12 }, (_, i) => i.toString().padStart(2, "0"));
@@ -29,8 +30,12 @@ export default function SetTimeAlarm() {
                 <Calendar/>
             </View>
             <View className="gap-4 px-6">
-                <LabelRing title="Vibrate" toggle={true}/>
-                <LabelRing title="Snooze" description="5 min." toggle={true}/>
+                <LabelRing title="Vibrate">
+                    <SwitchButton />
+                </LabelRing>
+                <LabelRing title="Snooze" description="5 min.">
+                    <SwitchButton />
+                </LabelRing>
                 <LabelRing title="Alarm name" description="name"/>
                 <LabelRing title="Mission" description="Math test"/>
             </View>
