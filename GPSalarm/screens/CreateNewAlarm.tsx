@@ -10,7 +10,7 @@ import SwitchButton from "../components/SwitchButton"
 export default function CreateNewAlarm() {
     const [distance, setDistance] = useState("50");
     return (
-        <View className="w-full h-full bg-black align-items-center justify-center">
+        <View className="w-full h-full bg-background align-items-center justify-center">
             <View className="w-full h-4/6">
                 <GPScard />
             </View>
@@ -30,6 +30,9 @@ export default function CreateNewAlarm() {
                     <CircleButton enabled={true} />
                 </View>
             </ScrollView>
+            <View className="absolute bottom-0 w-full items-center py-4 bg-[#222423d7]">
+                <ButtonRing title="Set alarm" url="CreateNewAlarm" style={{ width: "80%", paddingVertical: 10 }} />
+            </View>
         </View>
 
     )

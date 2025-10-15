@@ -5,6 +5,7 @@ import LabelRing from "../components/LabelRing";
 import { useState } from "react";
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import SwitchButton from "../components/SwitchButton";
+import ButtonRing from "../components/ButtonRing";
 
 export default function SetTimeAlarm() {
     const hours = Array.from({ length: 12 }, (_, i) => i.toString().padStart(2, "0"));
@@ -38,6 +39,9 @@ export default function SetTimeAlarm() {
                 </LabelRing>
                 <LabelRing title="Alarm name" description="name"/>
                 <LabelRing title="Mission" description="Math test"/>
+            </View>
+            <View className="absolute bottom-0 w-full items-center py-4 bg-[#222423d7]">
+                <ButtonRing title="Set alarm" url="CreateNewAlarm" style={{width: "80%", paddingVertical: 10}}/>
             </View>
         </View>
     )
