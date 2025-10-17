@@ -43,3 +43,7 @@ export const AddIcon = (props: IconProps) => (
 export const BackIcon = (props: IconProps) => (
     <MaterialCommunityIcons name="keyboard-backspace" size={30} color="#27C497" {...props} />
 )
+
+export const DownIcon = (props: IconProps) => (
+    <MaterialCommunityIcons name="chevron-down" size={30} color="#27C497" {...props} />
+)

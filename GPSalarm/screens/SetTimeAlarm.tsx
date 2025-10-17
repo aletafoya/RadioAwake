@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import CustomHeader from "../components/CustomHeader";
 import ScrollTime from "../components/ScrollTime";
 import LabelRing from "../components/LabelRing";
@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import SwitchButton from "../components/SwitchButton";
 import ButtonRing from "../components/ButtonRing";
+import { DownIcon } from "../components/icons";
 
 export default function SetTimeAlarm() {
     const hours = Array.from({ length: 12 }, (_, i) => i.toString().padStart(2, "0"));
@@ -15,33 +16,48 @@ export default function SetTimeAlarm() {
     const [hrs, setHours] = useState("00")
     const [mins, setMinutes] = useState("00")
 
+    const days = ["S", "M", "T", "W", "T", "F", "S"]
+
     return (
         <View className="flex-1 bg-background">
             <CustomHeader title={"Set alarm"} back={true} />
-            <View className="flex-row justify-center items-center gap-10 mt-10">
-                <ScrollTime data={hours} name={"Hours"} onChange={(val) => setHours(val)} />
-                <Text className="text-mainText text-8xl">:</Text>
-                <ScrollTime data={minutes} name={"Minutes"} onChange={(val) => setMinutes(val)} />
-                <View className="gap-3">
-                    <Text className="text-mainText text-3xl font-semibold">AM</Text>
-                    <Text className="text-mainText text-3xl font-semibold">PM</Text>
+            <ScrollView>
+                <View className="flex-row justify-center items-center gap-10 mt-10">
+                    <ScrollTime data={hours} name={"Hours"} onChange={(val) => setHours(val)} />
+                    <Text className="text-mainText text-8xl">:</Text>
+                    <ScrollTime data={minutes} name={"Minutes"} onChange={(val) => setMinutes(val)} />
+                    <View className="gap-3">
+                        <Text className="text-mainText text-3xl font-semibold">AM</Text>
+                        <Text className="text-mainText text-3xl font-semibold">PM</Text>
+                    </View>
                 </View>
-            </View>
-            <View>
-                <Calendar/>
-            </View>
-            <View className="gap-4 px-6">
-                <LabelRing title="Vibrate">
-                    <SwitchButton />
-                </LabelRing>
-                <LabelRing title="Snooze" description="5 min.">
-                    <SwitchButton />
-                </LabelRing>
-                <LabelRing title="Alarm name" description="name"/>
-                <LabelRing title="Mission" description="Math test"/>
-            </View>
-            <View className="absolute bottom-0 w-full items-center py-4 bg-[#222423d7]">
-                <ButtonRing title="Set alarm" url="CreateNewAlarm" style={{width: "80%", paddingVertical: 10}}/>
+                <View className="px-6 py-8 gap-5">
+                    <View className="flex-row justify-between items-center">
+                        <Text className="text-mainText text-3xl font-semibold">Repeat</Text>
+                        <DownIcon size={35}/>
+                    </View>
+                    <View className="flex-row justify-evenly">
+                        {days.map((day, i) => (
+                            <Text key={i} className="text-mainText text-3xl">{day}</Text>
+                        ))}
+                    </View>
+                </View>
+                <View>
+                    <Calendar />
+                </View>
+                <View className="gap-4 px-6">
+                    <LabelRing title="Vibrate">
+                        <SwitchButton />
+                    </LabelRing>
+                    <LabelRing title="Snooze" description="5 min.">
+                        <SwitchButton />
+                    </LabelRing>
+                    <LabelRing title="Alarm name" description="name" />
+                    <LabelRing title="Mission" description="Math test" />
+                </View>
+            </ScrollView>
+            <View className="sticky bottom-0 w-full items-center py-4 bg-[#222423e5]">
+                <ButtonRing title="Set alarm" url="CreateNewAlarm" style={{ width: "80%", paddingVertical: 10 }} />
             </View>
         </View>
     )
