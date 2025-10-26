@@ -1,18 +1,34 @@
 import { ScrollView, View } from "react-native"
-import { useState } from "react"
+import { use, useState } from "react"
 import GPScard from "../components/GPScard"
 import LabelRing from "../components/LabelRing"
 import CircleButton from "../components/CircleButton"
-import ButtonRing from "../components/ButtonRing"
+import SetAlarm from "../components/SetAlarm"
 import ScrollDistance from "../components/ScrollDistance"
 import SwitchButton from "../components/SwitchButton"
+import ButtonRing from "../components/ButtonRing"
+import type { RootStackParamList } from "../screens/RootStackParamList"
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
+import { useNavigation } from "@react-navigation/native";
 
+type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+
+// Pantalla para crear una nueva alarma GPS
 export default function CreateNewAlarm() {
+    const nav = useNavigation<NavigationProp>();
     const [distance, setDistance] = useState("50");
+    const [coords, setCoords] = useState<{ latitude: number; longitude: number } | null>(
+        {latitude: 19.4284844, longitude: -99.1276628})
+    
+    // Función para terminar y agregar una alarma
+    const handlePress = () => {
+        nav.navigate("GPSalarm")
+    }
+
     return (
         <View className="w-full h-full bg-background align-items-center justify-center">
             <View className="w-full h-4/6">
-                <GPScard />
+                <GPScard onChange={setCoords}/>
             </View>
             <ScrollView>
                 <View className="items-center">
@@ -31,7 +47,7 @@ export default function CreateNewAlarm() {
                 </View>
             </ScrollView>
             <View className="absolute bottom-0 w-full items-center py-4 bg-[#222423d7]">
-                <ButtonRing title="Set alarm" url="CreateNewAlarm" style={{ width: "80%", paddingVertical: 10 }} />
+                <SetAlarm onPress={handlePress}/>
             </View>
         </View>
 
