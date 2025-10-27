@@ -8,9 +8,10 @@ type AudioCardProp = {
     name: string,
     state: boolean,
     onSelect: () => void
+    onChange: () => void
 }
 
-export default function AudioCard({ name, state, onSelect } : AudioCardProp) {
+export default function AudioCard({ name, state, onSelect, onChange } : AudioCardProp) {
     return (
         <View className='flex-row pl-4 pt-4'>
             <LabelRing title={name} description=''/> 

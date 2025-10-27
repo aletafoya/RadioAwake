@@ -1,6 +1,10 @@
 import { Pressable, Text } from "react-native"
 
-export default function SetAlarm({ onPress } : { onPress: () => void }) {
+type SetAlarmProp = {
+    onPress: () => void
+}
+
+export default function SetAlarm({ onPress } : SetAlarmProp) {
 
     return (
         <Pressable 

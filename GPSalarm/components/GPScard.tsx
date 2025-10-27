@@ -12,7 +12,12 @@ const initialState = {
     longitudeDelta: 0.001,
 };
 
-export default function GPScard({onChange} : { onChange: (coords: { latitude: number; longitude: number } | null) => void }) {
+// Se pasa una función onChange que recibe las coordenadas del marcador
+type GPScardProp = {
+    onChange: (coords: { latitude: number; longitude: number } | null) => void
+}
+
+export default function GPScard({onChange} : GPScardProp) {
     // Estado para las coordenadas del marcador
     const [markerCoords, setMarkerCoords] = useState<{ latitude: number; longitude: number } | null>(initialState)
 
