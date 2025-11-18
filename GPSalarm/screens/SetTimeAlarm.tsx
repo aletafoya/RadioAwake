@@ -5,7 +5,7 @@ import LabelRing from "../components/LabelRing";
 import { useState } from "react";
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import SwitchButton from "../components/SwitchButton";
-import ButtonRing from "../components/ButtonRing";
+import ButtonUrl from "../components/ButtonUrl";
 import { DownIcon } from "../components/icons";
 
 export default function SetTimeAlarm() {
@@ -57,7 +57,7 @@ export default function SetTimeAlarm() {
                 </View>
             </ScrollView>
             <View className="sticky bottom-0 w-full items-center py-4 bg-[#222423e5]">
-                <ButtonRing title="Set alarm" url="CreateNewAlarm" style={{ width: "80%", paddingVertical: 10 }} />
+                <ButtonUrl title="Set alarm" url="CreateNewAlarm" style={{ width: "80%", paddingVertical: 10 }} />
             </View>
         </View>
     )

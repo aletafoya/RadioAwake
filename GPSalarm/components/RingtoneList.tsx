@@ -4,7 +4,7 @@ import AudioCard from "./AudioCard"
 import data from "../assets/tones.json"
 
 type RingtoneListProp = {
-    onChange: (audio: {id: string, name: string} | null) => void
+    onChange: (audio: {id: string, name: string}) => void
 }
 
 export default function RingtoneList({ onChange } : RingtoneListProp) {
@@ -12,7 +12,6 @@ export default function RingtoneList({ onChange } : RingtoneListProp) {
     const [checked, setChecked] = useState<string>(tones[0].id.toString()) // Qué tono está seleccionado
 
     const handlePress = (id: string, name: string) => {
-        alert(id)
         onChange({id: id, name: name})
     }
 

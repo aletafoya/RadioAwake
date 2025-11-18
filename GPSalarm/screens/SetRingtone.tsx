@@ -2,14 +2,23 @@ import RingtoneList from "../components/RingtoneList";
 import SetTone from "../components/SetTone";
 import { useState } from "react";
 import { View } from "react-native";
+import type { RootStackParamList } from "../screens/RootStackParamList"
 
-export default function SetRingtone() {
-    const [ringtone, setRingtone] = useState<{id: string; name: string } | null>({id: "1", name: "Retro Machine"});
+type SetRingtoneProp = {
+    link: keyof RootStackParamList,
+}
+
+export default function SetRingtone({ link }: SetRingtoneProp) {
+    const [ringtone, setRingtone] = useState<{id: string, name: string}>({id: "1", name: "Default"});
+
+    const handlePress = (audio: {id: string, name: string}) => {
+        setRingtone(audio);
+    }
 
     return(
         <View className="w-full h-full bg-[#222423]">
             <RingtoneList onChange={setRingtone}/>
-            <SetTone onPress={() => alert(`Ringtone set to: ${ringtone?.name}`)} />
+            <SetTone url={link}/>
         </View>
     )
 }

@@ -5,10 +5,11 @@ import SwitchButton from "./SwitchButton";
 type LabelRingProps = {
     title: string,
     description?: string,
-    children?: React.ReactNode 
+    children?: React.ReactNode
 }
 
 export default function LabelRing({title, description = "", children} : LabelRingProps) {
+    
     return (
         <View className="flex-row justify-between items-center">
             <View className="flex-column">

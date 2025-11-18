@@ -6,16 +6,15 @@ import { ViewStyle } from "react-native";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
-type ButtonRingProps = {
+type ButtonUrlProps = {
     title: string,
     url: keyof RootStackParamList,
     style?: ViewStyle,
     onPress?: () => void
 }
 
-export default function ButtonRing({ title, url, style }: ButtonRingProps) {
+export default function ButtonUrl({ title, url, style }: ButtonUrlProps) {
     const navigation = useNavigation<NavigationProp>();
-
     return (
         <Pressable
             onPress={() => navigation.navigate(url)}

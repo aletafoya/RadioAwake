@@ -10,38 +10,16 @@ import ButtonRing from "../components/ButtonRing"
 import type { RootStackParamList } from "../screens/RootStackParamList"
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { useNavigation } from "@react-navigation/native";
-//import RNFS from 'react-native-fs'; // File system para leer y escribir archivos
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
-//const filePath = RNFS.DocumentDirectoryPath + 'gpsAlarms.json';
-/*
-const appendToGPS = async (data: any) => {
-    try {
-        const fileContent = await RNFS.readFile(filePath, 'utf8');
-    
-        let dataArray;
-        if (fileContent) {
-            dataArray = JSON.parse(fileContent);
-        } else {
-            dataArray = [];
-        }
 
-        if (!Array.isArray(dataArray)) {
-            console.error("JSON content does not match");
-            dataArray = []; 
-        }
-
-        dataArray.push(data);
-
-        const updatedJsonString = JSON.stringify(dataArray, null, 2); 
-
-        await RNFS.writeFile(filePath, updatedJsonString, 'utf8');
-        
-        console.log('Success');
-    } catch (error) {
-        console.log(error)
-    }
-}*/
+async function appendData(newData: any) {
+    const existingData = await AsyncStorage.getItem("alarms");
+    const data = existingData ? JSON.parse(existingData) : [];
+    data.push(newData);
+    await AsyncStorage.setItem("alarms", JSON.stringify(data));
+}
 
 // Pantalla para crear una nueva alarma GPS
 export default function CreateNewAlarm() {
@@ -52,7 +30,12 @@ export default function CreateNewAlarm() {
     
     // Función para terminar y agregar una alarma
     const handlePress = () => {
-        
+        appendData({
+            coords: coords,
+            distance: distance,
+            ringtone: "Default",
+            vibrate: true,
+        })        
         //alert(filePath)
         nav.navigate("GPSalarm")
     }
