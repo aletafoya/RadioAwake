@@ -18,7 +18,7 @@ export default function SetRingtone({ link }: SetRingtoneProp) {
     return(
         <View className="w-full h-full bg-[#222423]">
             <RingtoneList onChange={setRingtone}/>
-            <SetTone url={link}/>
+            <SetTone url={link} ringtone={ringtone}/>
         </View>
     )
 }

@@ -6,15 +6,20 @@ import { ViewStyle } from "react-native";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
+// Solamente permitir rutas sin parámetros
+type NoParamsRoutes = {
+    [K in keyof RootStackParamList]: undefined extends RootStackParamList[K] ? K : never
+}[keyof RootStackParamList];
+
 type ButtonRingProps = {
     title: string,
-    url: keyof RootStackParamList,
-    style?: ViewStyle,
-    onPress?: () => void
+    url: NoParamsRoutes,
+    style?: ViewStyle
 }
 
 export default function ButtonRing({ title, url, style }: ButtonRingProps) {
     const navigation = useNavigation<NavigationProp>();
+
 
     return (
         <Pressable
