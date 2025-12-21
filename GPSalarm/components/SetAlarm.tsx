@@ -5,7 +5,7 @@ type SetAlarmProp = {
 }
 
 export default function SetAlarm({ onPress } : SetAlarmProp) {
-
+    
     return (
         <Pressable 
             onPress = {onPress}

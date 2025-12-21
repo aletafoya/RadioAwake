@@ -14,16 +14,22 @@ type NoParamsRoutes = {
 type ButtonRingProps = {
     title: string,
     url: NoParamsRoutes,
-    style?: ViewStyle
+    style?: ViewStyle,
+    linkComingFrom: string,
 }
 
-export default function ButtonRing({ title, url, style }: ButtonRingProps) {
+export default function ButtonRing({ title, url, style, linkComingFrom }: ButtonRingProps) {
     const navigation = useNavigation<NavigationProp>();
-
+    
+    const handlePress = () => {
+	navigation.navigate(url, {
+	    link: linkComingFrom
+	});
+    };
 
     return (
         <Pressable
-            onPress={() => navigation.navigate(url)}
+            onPress={handlePress}
             style={{
                 backgroundColor: "#27C497",
                 paddingHorizontal: 20,

@@ -18,5 +18,5 @@ export default function GPSAlarmCard({ location, radius, name } : GPSAlarmCardPr
             </View>
             <SwitchButton trackWidth={50} trackHeight={25} trackColors={{on:'#27C497', off:'#757575'}}/>
         </View>
-    )
+    );
 }
