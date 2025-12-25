@@ -1,4 +1,4 @@
-import { ScrollView, View } from "react-native"
+import { ScrollView, TextInput, View } from "react-native"
 import { useState, useEffect } from "react"
 import GPScard from "../components/GPScard"
 import LabelRing from "../components/LabelRing"
@@ -7,6 +7,7 @@ import SetAlarm from "../components/SetAlarm"
 import ScrollDistance from "../components/ScrollDistance"
 import SwitchButton from "../components/SwitchButton"
 import ButtonRing from "../components/ButtonRing"
+import CustomHeader from "../components/CustomHeader"
 import type { RootStackParamList } from "../screens/RootStackParamList"
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -14,21 +15,39 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
+async function getAlarms() {
+    try {
+        const data = await AsyncStorage.getItem("gpsAlarms");
+        return data ? JSON.parse(data) : [];
+    } catch (error) {
+        console.error("Error reading alarms:", error);
+        return [];
+    }
+}
+
 async function appendData(newData: any) {
-    const existingData = await AsyncStorage.getItem("gpsAlarms");
-    const data = existingData ? JSON.parse(existingData) : [];
-    data.push(newData);
-    await AsyncStorage.setItem("gpsAlarms", JSON.stringify(data));
+    try {
+        const data = await getAlarms();
+        data.push(newData);
+        await AsyncStorage.setItem("gpsAlarms", JSON.stringify(data));
+        return true;
+    } catch (error) {
+        console.error("Error saving alarm:", error);
+        return false;
+    }
 }
 
 // Pantalla para crear una nueva alarma GPS
 export default function CreateNewAlarm() {
     const nav = useNavigation<NavigationProp>();
+    const [name, setName] = useState("Alarm");
     const [distance, setDistance] = useState("50");
     const [ringtone, setRingtone] = useState<{ id: string, name: string }>({id: "1", name: "Default"});
     const [coords, setCoords] = useState<{ latitude: number; longitude: number } | null>(
         {latitude: 19.4284844, longitude: -99.1276628});
-    
+    const [vibrate, setVibrate] = useState<Boolean>(false);
+    const [snooze, setSnooze] = useState<Boolean>(false);
+
     const route = useRoute();
     const value = route.params as {id: string, name: string} | undefined;
 
@@ -36,23 +55,25 @@ export default function CreateNewAlarm() {
 	if (value) {
 	    setRingtone(value);
 	}
-    }, [value]); // Add this useEffect to update ringtone when returning
+    }, [value]);
 
     const handlePress = () => {
-	alert(ringtone.name);
 	appendData({
 	    coords: coords,
+	    name: name,
 	    distance: distance,
 	    ringtone: ringtone.name,
-	    ringtone_id: ringtone.id,
-	    vibrate: true,
+	    ringtoneId: ringtone.id,
+	    vibrate: vibrate,
+	    snooze: snooze
 	});
 	nav.navigate("GPSalarm");
-    }
+    };
 
     return (
         <View className="w-full h-full bg-background align-items-center justify-center">
-            <View className="w-full h-4/6">
+            <CustomHeader title="Set Alarm" back={true}/>
+	    <View className="w-full h-4/6">
                 <GPScard onChange={setCoords}/>
             </View>
             <ScrollView>
@@ -64,8 +85,15 @@ export default function CreateNewAlarm() {
                         <ButtonRing title="Default" url="SetRingtone" linkComingFrom="CreateNewAlarm"/>
                     </LabelRing>
                     <LabelRing title="Vibrate" description="">
-                        <SwitchButton />
+                        <SwitchButton onChange={(value) => setVibrate(value)}/>
                     </LabelRing>
+		    <LabelRing title="Snooze" description="5 min.">
+		        <SwitchButton onChange={(value) => setSnooze(value)}/>
+		    </LabelRing>
+	            <LabelRing title="Alarm name">
+			<TextInput value={name} onChangeText={setName} className="color-[#ffffff]"/>
+		    </ LabelRing>
+	            <LabelRing title="Mission" description="Math test" />
                 </View>
                 <View className="items-center">
                     <CircleButton enabled={true} />

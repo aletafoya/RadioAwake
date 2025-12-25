@@ -27,7 +27,7 @@ export default function Timer() {
       </View>
       <View className="gap-4 px-6">
         <LabelRing title="Set Ringtone" description="Default">
-          <ButtonRing title="Default" url="SetRingtone" />
+          <ButtonRing title="Default" url="SetRingtone" linkComingFrom="Timer"/>
         </LabelRing>
         <LabelRing title="Vibrate" description="">
           <SwitchButton />

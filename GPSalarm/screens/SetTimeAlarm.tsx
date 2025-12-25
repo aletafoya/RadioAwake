@@ -57,7 +57,7 @@ export default function SetTimeAlarm() {
                 </View>
             </ScrollView>
             <View className="sticky bottom-0 w-full items-center py-4 bg-[#222423e5]">
-                <ButtonUrl title="Set alarm" url="CreateNewAlarm" style={{ width: "80%", paddingVertical: 10 }} />
+                <ButtonUrl title="Set alarm" url="TimeAlarm" style={{ width: "80%", paddingVertical: 10 }} />
             </View>
         </View>
     )

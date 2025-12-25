@@ -138,6 +138,7 @@ interface SwitchButtonProps {
   initial?: boolean;
   // Overrides opcionales que se pasaran al Switch interno
   trackWidth?: number;
+  onChange?: (value: Boolean) => void;
   trackHeight?: number;
   trackPadding?: number;
   thumbSize?: number;
@@ -148,6 +149,7 @@ interface SwitchButtonProps {
 
 const SwitchButton: React.FC<SwitchButtonProps> = ({
   initial = false,
+  onChange,
   trackWidth = 50,
   trackHeight = 25,
   trackPadding,
@@ -160,6 +162,7 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
 
   const toggle = () => {
     isOn.value = !isOn.value;
+    onChange?.(!!isOn.value);
   };
 
   return (
